@@ -1,18 +1,14 @@
-<!doctype html>
-<html lang="en">
-<head>
-    <title>My Blog</title>
-    <link rel="stylesheet" href="/app.css">
-</head>
-<body>
-    <article>
-        <h1><?= $post->title; ?></h1>
+<x-layout>
+    <x-slot name="content">
+        <article>
+            <a href="/posts/{{$post->slug}}">
+                <h1>{{$post->title}}</h1>
+            </a>
 
-        <div>
-            <?= $post->body; ?>
-        </div>
-    </article>
-
-    <a href="/">Go Back</a>
-</body>
-</html>
+            <div>
+                <?= $post->body; ?>
+            </div>
+            <a href="/">Go Back</a>
+        </article>
+    </x-slot>
+</x-layout>
