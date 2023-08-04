@@ -1,15 +1,11 @@
 <x-layout>
-    <x-slot name="content">
-        @foreach ($posts as $post)
-            <article class="{{$loop->even ? 'mb-6' : ''}}">
-                <a href="/posts/{{$post->slug}}">
-                    <h1>{{$post->title}}</h1>
-                </a>
+    @include('_posts-header')
 
-                <div>
-                        <?= $post->excerpt; ?>
-                </div>
-            </article>
-        @endforeach
-    </x-slot>
+    <main class="max-w-6xl mx-auto mt-6 lg:mt-20 space-y-6">
+        @if($posts->count())
+            <x-posts-grid :posts="$posts" />
+        @else
+            <p class="text-center">No posts yet. Please check back later.</p>
+        @endif
+    </main>
 </x-layout>
