@@ -17,10 +17,10 @@ class DatabaseSeeder extends Seeder
     {
         User::truncate();
         Post::truncate();
+        Category::truncate();
 
-        User::factory(10)->create();
+        User::factory(150)->create();
 
-        Post::factory(10)->create();
-
+        Post::factory(150)->create();
     }
 }
